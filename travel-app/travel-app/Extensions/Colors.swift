@@ -16,4 +16,5 @@ struct Theme {
     let accent = Color("AccentColor")
     let background = Color("BackgroundColor")
     let textColor = Color("SecondaryTextColor")
+    let searchBg = Color("SearchBarBg")
 }
