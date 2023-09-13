@@ -14,93 +14,105 @@ struct ExploreView: View {
     @Namespace var namespace;
     
     var body: some View {
-     
-        VStack{
-            VStack(spacing: 0) {
-                avartaSection
-                searchSection
-            }
-            pageTabs
-            
-            ScrollView {
-                VStack(spacing: 24) {
-                    VStack {
-                        HStack {
-                            Text("Popular Destination")
-                                .foregroundColor(Color.theme.textColor)
-                                .font(.headline)
-                            Spacer()
-                            Text("View all")
-                                .font(.subheadline)
-                                .bold()
-                                .foregroundColor(Color.theme.accent)
-                        }
-                        
-                        ScrollView(.horizontal, showsIndicators:false) {
+      
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
+            VStack{
+                VStack(spacing: 0) {
+                    avartaSection
+                    searchSection
+                }
+                pageTabs
+                
+                ScrollView {
+                    VStack(spacing: 24) {
+                        VStack {
                             HStack {
-                                Image("pic1")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .overlay(badgeView, alignment: .topTrailing)
-                                    .overlay(locationTitle, alignment: .bottomLeading)
-                                    .frame(width: 243, height: 310)
-                                .clipShape(RoundedRectangle(cornerRadius: 16))
-                                Image("pic1")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .overlay(badgeView, alignment: .topTrailing)
-                                    .overlay(locationTitle, alignment: .bottomLeading)
-                                    .frame(width: 243, height: 310)
+                                Text("Popular Destination")
+                                    .foregroundColor(Color.theme.textColor)
+                                    .font(.headline)
+                                Spacer()
+                                Text("View all")
+                                    .font(.subheadline)
+                                    .bold()
+                                    .foregroundColor(Color.theme.accent)
+                            }
+                            
+                            ScrollView(.horizontal, showsIndicators:false) {
+                                HStack {
+                                    Image("pic1")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .overlay(badgeView, alignment: .topTrailing)
+                                        .overlay(locationTitle, alignment: .bottomLeading)
+                                        .frame(width: 243, height: 310)
                                     .clipShape(RoundedRectangle(cornerRadius: 16))
+                                    Image("pic1")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .overlay(badgeView, alignment: .topTrailing)
+                                        .overlay(locationTitle, alignment: .bottomLeading)
+                                        .frame(width: 243, height: 310)
+                                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                                }
                             }
                         }
-                    }
 
-                    
-                    // news section
-                    VStack {
-                        HStack {
-                            Text("Popular Destination")
-                                .foregroundColor(Color.theme.textColor)
-                                .font(.headline)
-                            Spacer()
-                            Text("View all")
-                                .font(.subheadline)
-                                .bold()
-                                .foregroundColor(Color.theme.accent)
-                        }
-                        ScrollView {
-                            VStack {
-                                HStack {
-                                    Text("North America private customized Travel plans, come and learn")
-                                        .font(.subheadline)
-                                        .foregroundColor(Color.theme.textColor)
-                                    Spacer()
-                                    Text("New")
-                                        .font(.subheadline)
-                                        .bold()
-                                        .foregroundColor(Color.theme.accent)
-                                        .padding(.vertical,  5)
-                                        .padding(.horizontal, 10)
-                                        .overlay {
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .fill(Color.theme.accent.opacity(0.2))
-                                        }
+                        
+                        // news section
+                        VStack {
+                            HStack {
+                                Text("Latest News")
+                                    .foregroundColor(Color.theme.textColor)
+                                    .font(.headline)
+                                Spacer()
+                                Text("View all")
+                                    .font(.subheadline)
+                                    .bold()
+                                    .foregroundColor(Color.theme.accent)
+                            }
+                            ScrollView {
+                                VStack(spacing: 12) {
+                                    HStack {
+                                        Text("North America private customized Travel plans, come and learn")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color.theme.textColor)
+                                        Spacer()
+                                        Text("New")
+                                            .font(.subheadline)
+                                            .bold()
+                                            .foregroundColor(Color.theme.accent)
+                                            .padding(.vertical,  5)
+                                            .padding(.horizontal, 10)
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 8)
+                                                    .fill(Color.theme.accent.opacity(0.2))
+                                            }
+                                        
+                                    }
+                                    
+                                    HStack {
+                                        Text("03 July, 2022")
+                                            .font(.system(size: 12))
+                                        Spacer()
+                                        Image(systemName: "arrow.forward")
+                                    }
                                     
                                 }
-                                
-                                
-                                
+                                .padding()
+                                .background(RoundedRectangle(cornerRadius: 8)
+                                    .fill(.white))
                             }
                         }
                     }
                 }
-            }
-            .padding()
+                .padding()
 
-            Spacer()
-           
-            
+                Spacer()
+               
+                
+            }
         }
     }
 }
