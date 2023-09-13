@@ -23,10 +23,81 @@ struct ExploreView: View {
             pageTabs
             
             ScrollView {
-                
+                VStack(spacing: 24) {
+                    VStack {
+                        HStack {
+                            Text("Popular Destination")
+                                .foregroundColor(Color.theme.textColor)
+                                .font(.headline)
+                            Spacer()
+                            Text("View all")
+                                .font(.subheadline)
+                                .bold()
+                                .foregroundColor(Color.theme.accent)
+                        }
+                        
+                        ScrollView(.horizontal, showsIndicators:false) {
+                            HStack {
+                                Image("pic1")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .overlay(badgeView, alignment: .topTrailing)
+                                    .overlay(locationTitle, alignment: .bottomLeading)
+                                    .frame(width: 243, height: 310)
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                                Image("pic1")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .overlay(badgeView, alignment: .topTrailing)
+                                    .overlay(locationTitle, alignment: .bottomLeading)
+                                    .frame(width: 243, height: 310)
+                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                            }
+                        }
+                    }
+
+                    
+                    // news section
+                    VStack {
+                        HStack {
+                            Text("Popular Destination")
+                                .foregroundColor(Color.theme.textColor)
+                                .font(.headline)
+                            Spacer()
+                            Text("View all")
+                                .font(.subheadline)
+                                .bold()
+                                .foregroundColor(Color.theme.accent)
+                        }
+                        ScrollView {
+                            VStack {
+                                HStack {
+                                    Text("North America private customized Travel plans, come and learn")
+                                        .font(.subheadline)
+                                        .foregroundColor(Color.theme.textColor)
+                                    Spacer()
+                                    Text("New")
+                                        .font(.subheadline)
+                                        .bold()
+                                        .foregroundColor(Color.theme.accent)
+                                        .padding(.vertical,  5)
+                                        .padding(.horizontal, 10)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color.theme.accent.opacity(0.2))
+                                        }
+                                    
+                                }
+                                
+                                
+                                
+                            }
+                        }
+                    }
+                }
             }
-          
-            
+            .padding()
+
             Spacer()
            
             
@@ -41,6 +112,37 @@ struct ExploreView_Previews: PreviewProvider {
 }
 
 extension ExploreView {
+    // Location Title
+    private var locationTitle: some View {
+        ZStack(alignment: .bottomLeading) {
+            Rectangle()
+                .fill(LinearGradient(colors: [Color.theme.textColor, .black.opacity(0.1)], startPoint: .bottom, endPoint: .top))
+            Text("Western North America Highway")
+                .font(.headline)
+                .bold()
+                .foregroundColor(.white)
+            .padding()
+        }
+        .frame(height: 150)
+    }
+    //badge
+    private var badgeView: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "paperplane.fill")
+            Text("direction")
+                .font(.subheadline)
+               
+        }
+        .padding(8)
+        .foregroundColor(Color.theme.accent)
+        .background{
+            RoundedRectangle(cornerRadius: 8)
+                .fill(.white)
+                .frame(height: 36)
+        }
+        .padding()
+    }
+    
     
     // Tab section
     private var pageTabs: some View {
