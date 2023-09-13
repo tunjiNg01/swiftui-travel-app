@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct ExploreView: View {
+    private let tabs: [String] = ["Explore", "Flights", "Hotels", "Places", "Other" ]
+    @State var selected: String = "Explore"
     @State private var searchedText = ""
+    @Namespace var namespace;
+    
     var body: some View {
      
         VStack{
             VStack(spacing: 0) {
                 avartaSection
                 searchSection
-               
             }
+            pageTabs
+            
+            ScrollView {
+                
+            }
+          
+            
             Spacer()
            
             
@@ -31,6 +41,35 @@ struct ExploreView_Previews: PreviewProvider {
 }
 
 extension ExploreView {
+    
+    // Tab section
+    private var pageTabs: some View {
+        HStack() {
+            ForEach(tabs, id: \.self) { tab in
+                ZStack(alignment: .bottom) {
+                    if selected == tab {
+                        Circle()
+                            .fill(Color.theme.accent)
+                            .frame(width: 8, height: 8)
+                            .offset(y:11)
+                            .matchedGeometryEffect(id: "tabs", in: namespace)
+                    }
+                    Text(tab)
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(selected == tab ? Color.theme.accent : Color.theme.textColor )
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 45)
+                .onTapGesture {
+                    withAnimation(.spring()) {
+                        selected = tab
+                    }
+                }
+            }
+        }
+        .padding(.horizontal)
+    }
     // avarta section
     private var avartaSection: some View {
         HStack {
@@ -77,8 +116,8 @@ extension ExploreView {
                 .padding()
                 .background{
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(.white)
-                        .shadow( color: Color.theme.accent.opacity(0.3), radius: 4)
+                        .fill(Color.theme.searchBg)
+                        
                 }
         }
         .padding()
