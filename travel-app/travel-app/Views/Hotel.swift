@@ -25,8 +25,6 @@ struct Hotel: View {
                     .bold()
                     .foregroundColor(Color.theme.accent)
             }
-            
-           
             LazyVGrid(columns: columns,
                               alignment: .center,
                               spacing: spacing,
