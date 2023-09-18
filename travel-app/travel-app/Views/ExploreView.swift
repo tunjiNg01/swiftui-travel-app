@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ExploreView: View {
     private let tabs: [String] = ["Explore", "Flights", "Hotels", "Places", "Other" ]
     @State var selected: String = "Explore"
@@ -14,7 +15,6 @@ struct ExploreView: View {
     @Namespace var namespace;
     
     var body: some View {
-      
         ZStack {
             Color.theme.background
                 .ignoresSafeArea()
@@ -25,93 +25,45 @@ struct ExploreView: View {
                 }
                 pageTabs
                 
-                ScrollView {
-                    VStack(spacing: 24) {
-                        VStack {
-                            HStack {
-                                Text("Popular Destination")
-                                    .foregroundColor(Color.theme.textColor)
-                                    .font(.headline)
-                                Spacer()
-                                Text("View all")
-                                    .font(.subheadline)
-                                    .bold()
-                                    .foregroundColor(Color.theme.accent)
-                            }
-                            
-                            ScrollView(.horizontal, showsIndicators:false) {
-                                HStack {
-                                    Image("pic1")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .overlay(badgeView, alignment: .topTrailing)
-                                        .overlay(locationTitle, alignment: .bottomLeading)
-                                        .frame(width: 243, height: 310)
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                                    Image("pic1")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .overlay(badgeView, alignment: .topTrailing)
-                                        .overlay(locationTitle, alignment: .bottomLeading)
-                                        .frame(width: 243, height: 310)
-                                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                if selected == "Explore" {
+                    ScrollView {
+                        VStack(spacing: 24) {
+                            VStack {
+                             // Destination label
+                                destinationLabel
+                                ScrollView(.horizontal, showsIndicators:false) {
+                                    HStack {
+                                       Destination()
+                                       Destination()
+                                    }
                                 }
                             }
-                        }
-
-                        
-                        // news section
-                        VStack {
-                            HStack {
-                                Text("Latest News")
-                                    .foregroundColor(Color.theme.textColor)
-                                    .font(.headline)
-                                Spacer()
-                                Text("View all")
-                                    .font(.subheadline)
-                                    .bold()
-                                    .foregroundColor(Color.theme.accent)
-                            }
-                            ScrollView {
-                                VStack(spacing: 12) {
-                                    HStack {
-                                        Text("North America private customized Travel plans, come and learn")
-                                            .font(.subheadline)
-                                            .foregroundColor(Color.theme.textColor)
-                                        Spacer()
-                                        Text("New")
-                                            .font(.subheadline)
-                                            .bold()
-                                            .foregroundColor(Color.theme.accent)
-                                            .padding(.vertical,  5)
-                                            .padding(.horizontal, 10)
-                                            .overlay {
-                                                RoundedRectangle(cornerRadius: 8)
-                                                    .fill(Color.theme.accent.opacity(0.2))
-                                            }
-                                        
+                            // news section
+                            VStack {
+                               // News label
+                                newsLabel
+                                ScrollView {
+                                    HStack{
+                                        NewsRow()
                                     }
-                                    
-                                    HStack {
-                                        Text("03 July, 2022")
-                                            .font(.system(size: 12))
-                                        Spacer()
-                                        Image(systemName: "arrow.forward")
-                                    }
-                                    
                                 }
-                                .padding()
-                                .background(RoundedRectangle(cornerRadius: 8)
-                                    .fill(.white))
                             }
                         }
                     }
+                    .padding()
+                    .transition(.onTab)
                 }
-                .padding()
-
-                Spacer()
-               
+                if selected == "Flights" {
+                    Flights()
+                        .transition(.onTab)
+                }
                 
+                if selected == "Hotels" {
+                    Hotel()
+                        .transition(.onTab)
+                }
+               
+                Spacer()
             }
         }
     }
@@ -206,6 +158,35 @@ extension ExploreView {
             
         }
         .padding()
+    }
+    
+    // destination label
+    private var destinationLabel: some View {
+        HStack {
+            Text("Popular Destination")
+                .foregroundColor(Color.theme.textColor)
+                .font(.headline)
+            Spacer()
+            Text("View all")
+                .font(.subheadline)
+                .bold()
+                .foregroundColor(Color.theme.accent)
+        }
+    }
+    
+    // news label
+    
+    private var newsLabel: some View {
+        HStack {
+            Text("Latest News")
+                .foregroundColor(Color.theme.textColor)
+                .font(.headline)
+            Spacer()
+            Text("View all")
+                .font(.subheadline)
+                .bold()
+                .foregroundColor(Color.theme.accent)
+        }
     }
     
     // Search section

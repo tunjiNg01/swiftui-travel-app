@@ -13,6 +13,8 @@
 		5296C0912AB48477006C01BB /* Flights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296C0902AB48477006C01BB /* Flights.swift */; };
 		5296C0932AB4C06A006C01BB /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296C0922AB4C06A006C01BB /* View.swift */; };
 		5296C0952AB8A0CE006C01BB /* FlightRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296C0942AB8A0CE006C01BB /* FlightRow.swift */; };
+		5296C0972AB8A7A4006C01BB /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296C0962AB8A7A4006C01BB /* NewsRow.swift */; };
+		5296C0992AB8B0EA006C01BB /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296C0982AB8B0EA006C01BB /* Transition.swift */; };
 		52971F082AA363820097013F /* travel_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52971F072AA363820097013F /* travel_appApp.swift */; };
 		52971F0A2AA363820097013F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52971F092AA363820097013F /* ContentView.swift */; };
 		52971F0C2AA363830097013F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52971F0B2AA363830097013F /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		5296C0902AB48477006C01BB /* Flights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flights.swift; sourceTree = "<group>"; };
 		5296C0922AB4C06A006C01BB /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5296C0942AB8A0CE006C01BB /* FlightRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRow.swift; sourceTree = "<group>"; };
+		5296C0962AB8A7A4006C01BB /* NewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRow.swift; sourceTree = "<group>"; };
+		5296C0982AB8B0EA006C01BB /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		52971F042AA363820097013F /* travel-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "travel-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52971F072AA363820097013F /* travel_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travel_appApp.swift; sourceTree = "<group>"; };
 		52971F092AA363820097013F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 				5222C0E52AB1E6BF0087D5C7 /* Destination.swift */,
 				5222C0E92AB2017E0087D5C7 /* HotelComp.swift */,
 				5296C0942AB8A0CE006C01BB /* FlightRow.swift */,
+				5296C0962AB8A7A4006C01BB /* NewsRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			children = (
 				529CA9582AAD7B4A00B1DDC4 /* Colors.swift */,
 				5296C0922AB4C06A006C01BB /* View.swift */,
+				5296C0982AB8B0EA006C01BB /* Transition.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,10 +208,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5222C0E82AB1F38E0087D5C7 /* Hotel.swift in Sources */,
+				5296C0972AB8A7A4006C01BB /* NewsRow.swift in Sources */,
 				5296C0912AB48477006C01BB /* Flights.swift in Sources */,
 				52971F0A2AA363820097013F /* ContentView.swift in Sources */,
 				529CA9592AAD7B4A00B1DDC4 /* Colors.swift in Sources */,
 				5222C0E62AB1E6BF0087D5C7 /* Destination.swift in Sources */,
+				5296C0992AB8B0EA006C01BB /* Transition.swift in Sources */,
 				5296C0932AB4C06A006C01BB /* View.swift in Sources */,
 				5296C0952AB8A0CE006C01BB /* FlightRow.swift in Sources */,
 				529CA9542AAD762E00B1DDC4 /* ExploreView.swift in Sources */,
